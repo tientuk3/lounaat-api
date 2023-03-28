@@ -96,7 +96,7 @@ def get_tellus_restaurants():
     restaurant = {"name": "Tellus",
                 "address": "Valimopolku 4, 00380 Helsinki",
                 "distance": "0m",
-                "dishes": [x for x in matched_dishes if x != '']}
+                "dishes": [x.replace(')', ') ') for x in matched_dishes if x != '']}
     
     restaurants.append(restaurant)
     return restaurants
