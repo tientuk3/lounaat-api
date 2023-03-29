@@ -4,7 +4,11 @@ from parse import *
 
 app = FastAPI()
 
-origins = ["*"]
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "https://api.tuk3diagnostics.com",
+]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
