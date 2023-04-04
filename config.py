@@ -6,5 +6,4 @@ TELLUS_URL = 'https://www.compass-group.fi/menuapi/feed/rss/current-day?costNumb
 
 # list of names of restaurants that you don't want to see. will be partially matched to restaurant name (not case sensitive)
 # example:
-#blacklist = ['lasihelmi', 'valaja']
-blacklist = []
+blacklist = ['helsinki-tali', 'ravintola tali']
