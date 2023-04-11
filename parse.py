@@ -65,6 +65,8 @@ def get_por_restaurants():
     content = soup.find("div", class_="kt-tab-inner-content-inner") # get the blob of data containing the menu
     starting_tag = content.find("h2", string=re.compile("^Viikko")) # find the tag before today's menu
     menu_element = starting_tag.find_next_sibling()
+    if (len(menu_element.text) < 3): # por bug
+        menu_element = menu_element.find_next_sibling()
     menu_element.find("strong").extract() # filter out and discard the date string
     matched_dishes = re.findall(r"[A-Z].*?(?=\d)", menu_element.text) # list dishes with some regex magic
 
