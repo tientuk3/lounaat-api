@@ -7,3 +7,7 @@ TELLUS_URL = 'https://www.compass-group.fi/menuapi/feed/rss/current-day?costNumb
 # list of names of restaurants that you don't want to see. will be partially matched to restaurant name (not case sensitive)
 # example:
 blacklist = ['helsinki-tali', 'ravintola tali', 'sodexo']
+
+# list of your favorite restaurants. These names will be partially matched to any restaurant name and the set of matching restaurants
+# will be at the beginning of the list in an undefined order
+favorites = ['por', 'tellus', '91.1', 'faundori', 'blancco']
