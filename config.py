@@ -10,4 +10,4 @@ blacklist = ['helsinki-tali', 'ravintola tali', 'sodexo']
 
 # list of your favorite restaurants. These names will be partially matched to any restaurant name and the set of matching restaurants
 # will be at the beginning of the list in an undefined order
-favorites = ['por', 'tellus', '91.1', 'faundori', 'blancco']
+favorites = ['por', 'tellus', '91.1', 'faundori', 'blancco', 'factory pitäjänmäki']
