@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+from datetime import datetime
 from config import LOUNAAT_INFO_URL, POR_URL, POR_HEADERS, TELLUS_URL, blacklist, favorites
 
 def is_blacklisted(restaurant_name):
@@ -65,10 +66,10 @@ def get_por_restaurants():
         
         soup = BeautifulSoup(response.text, 'html.parser')
         content = soup.find("div", class_="kt-tab-inner-content-inner") # get the blob of data containing the menu
-        starting_tag = content.find("h2", string=re.compile("^Viikko")) # find the tag before today's menu
-        menu_element = starting_tag.find_next_sibling()
-        if (len(menu_element.text) < 3): # por bug
-            menu_element = menu_element.find_next_sibling()
+
+        date_string = datetime.today().strftime("%d.%m").split(".")
+        por_format_date = ''.join([str(int(x)) + '.' for x in date_string]) # remove trailing zeroes
+        menu_element = content.find(string=re.compile(por_format_date)).parent.parent # find the p-tag of today's menu
         menu_element.find("strong").extract() # filter out and discard the date string
         matched_dishes = re.findall(r"[A-Z].*?(?=\d)", menu_element.text) # list dishes with some regex magic
 
