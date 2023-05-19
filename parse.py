@@ -65,8 +65,7 @@ def get_por_restaurants():
         response = requests.get(POR_URL, headers=POR_HEADERS)
         
         soup = BeautifulSoup(response.text, 'html.parser')
-        content = soup.find("div", class_="kt-tab-inner-content-inner") # get the blob of data containing the menu
-
+        content = soup.find("div", class_="wp-block-kadence-column kadence-column_aa5206-48 inner-column-1") # get the blob of data containing the menu
         date_string = datetime.today().strftime("%d.%m").split(".")
         por_format_date = ''.join([str(int(x)) + '.' for x in date_string]) # remove trailing zeroes
         menu_element = content.find(string=re.compile(por_format_date)).parent.parent # find the p-tag of today's menu
